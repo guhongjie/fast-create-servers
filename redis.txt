@@ -1,0 +1,13 @@
+数据目录
+mkdir E:\d\redis
+
+纯缓存6379
+docker run --log-opt max-size=1m --log-opt max-file=1 -p 6379:6379 --name redis-cache `
+-v E:\fast-create-servers\redis\redis-cache.conf:/etc/redis/redis.conf `
+-d redis redis-server /etc/redis/redis.conf
+
+持久化6378
+docker run --log-opt max-size=1m --log-opt max-file=1 -p 6378:6379 --name redis-db `
+-v E:\fast-create-servers\redis\redis-db.conf:/etc/redis/redis.conf  `
+-v E:\d\redis:/data `
+-d redis redis-server /etc/redis/redis.conf

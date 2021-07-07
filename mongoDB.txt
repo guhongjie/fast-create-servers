@@ -1,0 +1,16 @@
+数据目录
+mkdir E:\d\mongo
+
+docker run -d -p 27017:27017 `
+-v E:\d\mongo:/data/db `
+--name mongo docker.io/mongo
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,14 @@
+web后台
+http://localhost:8848/nacos/
+
+账号nacos密码nacos
+
+数据目录
+mkdir E:\d\nacos
+
+创建容器
+docker run -d -p 8848:8848 -e MODE=standalone -e PREFER_HOST_MODE=hostname `
+-v E:\fast-create-servers\nacos\custom.properties:/home/nacos/init.d/custom.properties `
+-v E:\d\nacos:/home/nacos/data `
+--name nacos nacos/nacos-server
+

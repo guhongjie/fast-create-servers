@@ -1,0 +1,15 @@
+本地地址：localhost:8161
+
+登陆账号：admin/admin
+
+数据目录
+mkdir E:\d\activemq
+
+
+docker run -d --name activemq -p 61617:61616 -p 8161:8161 `
+-v E:\d\activemq:/data/activemq `
+docker.io/webcenter/activemq:latest
+
+
+
+

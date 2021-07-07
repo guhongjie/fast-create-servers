@@ -1,0 +1,22 @@
+5672：应用访问端口；15672：控制台Web端口号
+localhost:15672
+
+admin admin
+
+数据目录
+mkdir E:\d\rabbitmq
+
+
+docker run -d -p 5672:5672 -p 15672:15672 `
+-e RABBITMQ_DEFAULT_USER=admin `
+-e RABBITMQ_DEFAULT_PASS=admin `
+-e RABBITMQ_DEFAULT_VHOST=rabbitmq `
+-v E:\d\rabbitmq:/var/lib/rabbitmq `
+--name rabbitmq rabbitmq:3.8.18-management
+
+
+
+
+
+
+

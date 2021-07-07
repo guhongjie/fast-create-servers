@@ -1,0 +1,17 @@
+数据目录
+mkdir E:\d\es
+
+创建镜像
+docker run -d --name es -p 9200:9200 -p 9300:9300 `
+-e ES_JAVA_OPTS="-Xms512m -Xmx512m" `
+-e "discovery.type=single-node" `
+ -v E:\d\es:/usr/share/elasticsearch/data `
+elasticsearch:7.13.2
+
+安装ik分词插件
+docker exec -it es /bin/bash ./bin/elasticsearch-plugin install https://github.91chifun.workers.dev/https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v7.13.2/elasticsearch-analysis-ik-7.13.2.zip
+
+可视化管理工具
+docker run -p 9800:9800 -d --link es:localhost --name es-web-elastichd containerize/elastichd
+连接
+http://localhost:9200

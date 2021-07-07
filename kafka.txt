@@ -1,0 +1,19 @@
+数据目录
+mkdir E:\d\kafka
+
+
+
+docker run -d --log-driver json-file --log-opt max-size=1m --log-opt max-file=2  -p 9092:9092 `
+--name kafka --link zookeeper:zookeeper `
+-e KAFKA_BROKER_ID=0 `
+-e KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181/kafka `
+-e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://localhost:9092 `
+-e KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092 `
+-v E:\d\kafka:/kafka `
+wurstmeister/kafka
+
+
+
+
+
+docker exec -it kafka bash

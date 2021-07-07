@@ -1,0 +1,43 @@
+控制台
+localhost:11912
+
+访问绑定host
+127.0.0.1 rocketmq-namesrv # docker rocketmq-namesrv
+127.0.0.1 rocketmq-broker # docker rocketmq-broker
+
+数据目录
+mkdir E:\d\rocketmq\namesrv
+mkdir E:\d\rocketmq\broker
+
+网络
+docker network create -d bridge my-bridge
+
+
+namesrv服务
+docker run -d -p 9876:9876 --net my-bridge `
+--name rocketmq-namesrv `
+-v E:\d\rocketmq\namesrv:/opt/store `
+foxiswho/rocketmq:server
+
+
+broker服务
+docker run -d  -p 10909:10909 -p 10911:10911 --net my-bridge `
+-v  E:\d\rocketmq\broker:/opt/store `
+-v  E:\fast-create-servers\rocketmq\broker.conf:/etc/rocketmq/broker.conf `
+--name rocketmq-broker `
+-e "NAMESRV_ADDR=rocketmq-namesrv:9876" `
+-e "JAVA_OPTS= -Duser.home=/opt" `
+-e "JAVA_OPT_EXT=-server -Xms128m -Xmx128m" `
+foxiswho/rocketmq:broker
+
+
+控制台
+docker run -d -p 11912:8080 --name rocketmq-console-ng --net my-bridge `
+-e "JAVA_OPTS=-Drocketmq.namesrv.addr=rocketmq-namesrv:9876 -Dcom.rocketmq.sendMessageWithVIPChannel=false" `
+-t styletang/rocketmq-console-ng
+
+
+
+
+
+

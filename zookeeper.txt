@@ -1,0 +1,17 @@
+数据目录
+mkdir E:\d\zookeeper
+
+docker run -d -p 2181:2181 --name zookeeper --privileged=true `
+-v E:\d\zookeeper:/data `
+zookeeper:latest
+
+
+
+
+
+
+
+
+
+
+

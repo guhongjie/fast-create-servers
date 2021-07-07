@@ -1,0 +1,8 @@
+数据目录
+mkdir E:\d\etcd
+
+docker run -p 2379:2379 -p 2380:2380 -d --name etcd `
+-e ALLOW_NONE_AUTHENTICATION=yes `
+-e ETCD_ADVERTISE_CLIENT_URLS=http://etcd:2379 `
+-v E:\d\etcd:/etcd-data `
+bitnami/etcd:latest
