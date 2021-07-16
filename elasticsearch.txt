@@ -14,4 +14,4 @@ docker exec -it es /bin/bash ./bin/elasticsearch-plugin install https://github.9
 可视化管理工具
 docker run -p 9800:9800 -d --link es:localhost --name es-web-elastichd containerize/elastichd
 连接
-http://localhost:9200
+http://localhost:9800
